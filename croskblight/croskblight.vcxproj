@@ -29,6 +29,7 @@
     <ClInclude Include="croskblight.h" />
     <ClInclude Include="eccmds.h" />
     <ClInclude Include="hidcommon.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Trace.h" />
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +168,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <FilesToPackage Include="$(TargetPath)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="croskblight.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
