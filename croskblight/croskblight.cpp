@@ -130,8 +130,11 @@ static int kbbl_init(_In_ PCROSKBLIGHT_CONTEXT pDevice)
 		return STATUS_IO_DEVICE_ERROR;
 	}
 
-	if (response.mode & WILCO_KBBL_MODE_FLAG_PWM)
-		return response.percent;
+	if (response.mode & WILCO_KBBL_MODE_FLAG_PWM) {
+		if (pDevice->currentBrightness == 0)
+			pDevice->currentBrightness = response.percent;
+		return STATUS_SUCCESS;
+	}
 
 	status = set_kbbl(pDevice, WILCO_KBBL_DEFAULT_BRIGHTNESS);
 	if (!NT_SUCCESS(status))
