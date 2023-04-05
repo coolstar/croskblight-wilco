@@ -162,7 +162,7 @@ static BOOLEAN wilco_ec_response_timed_out(PCROSKBLIGHT_CONTEXT pDevice)
 			return FALSE;
 
 		LARGE_INTEGER Interval;
-		Interval.QuadPart = -10 * 1000 * 100;
+		Interval.QuadPart = -10 * 100;
 		KeDelayExecutionThread(KernelMode, FALSE, &Interval);
 
 		KeQuerySystemTimePrecise(&CurrentTime);
